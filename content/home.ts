@@ -12,15 +12,12 @@ export type HeroContent = {
   heroImageDark: string;
   heroImageAlt: string;
 };
-
-// ─── Sponsors ───────────────────────────────────────────────────────────────
+// ... (types unchanged)
 export type SponsorItem = { icon: string; name: string };
 export type SponsorsContent = {
   heading: string;
   items: SponsorItem[];
 };
-
-// ─── Benefits ───────────────────────────────────────────────────────────────
 export type BenefitItem = { icon: string; title: string; description: string };
 export type BenefitsContent = {
   eyebrow: string;
@@ -28,8 +25,6 @@ export type BenefitsContent = {
   description: string;
   items: BenefitItem[];
 };
-
-// ─── Feature Grid ───────────────────────────────────────────────────────────
 export type FeatureItem = { icon: string; title: string; description: string };
 export type FeaturesContent = {
   eyebrow: string;
@@ -37,8 +32,6 @@ export type FeaturesContent = {
   subtitle: string;
   items: FeatureItem[];
 };
-
-// ─── Services ───────────────────────────────────────────────────────────────
 export type ServiceItem = { title: string; description: string; pro: boolean };
 export type ServicesContent = {
   eyebrow: string;
@@ -46,8 +39,6 @@ export type ServicesContent = {
   subtitle: string;
   items: ServiceItem[];
 };
-
-// ─── Testimonials ───────────────────────────────────────────────────────────
 export type TestimonialItem = {
   image: string;
   name: string;
@@ -60,8 +51,6 @@ export type TestimonialsContent = {
   heading: string;
   reviews: TestimonialItem[];
 };
-
-// ─── Team ───────────────────────────────────────────────────────────────────
 export type SocialLink = { name: string; url: string };
 export type TeamMember = {
   imageUrl: string;
@@ -75,8 +64,6 @@ export type TeamContent = {
   heading: string;
   members: TeamMember[];
 };
-
-// ─── Pricing ────────────────────────────────────────────────────────────────
 export type PricingPlan = {
   title: string;
   popular: boolean;
@@ -92,8 +79,6 @@ export type PricingContent = {
   priceSuffix: string;
   plans: PricingPlan[];
 };
-
-// ─── Contact ────────────────────────────────────────────────────────────────
 export type ContactInfoBlock = { label: string; value: string | string[] };
 export type ContactContent = {
   eyebrow: string;
@@ -109,16 +94,12 @@ export type ContactContent = {
   formSubjects: string[];
   formSubmitLabel: string;
 };
-
-// ─── FAQ ────────────────────────────────────────────────────────────────────
 export type FaqItem = { question: string; answer: string };
 export type FaqContent = {
   eyebrow: string;
   heading: string;
   items: FaqItem[];
 };
-
-// ─── Footer ─────────────────────────────────────────────────────────────────
 export type FooterLink = { label: string; href: string };
 export type FooterColumn = { heading: string; links: FooterLink[] };
 export type FooterContent = {
@@ -127,8 +108,6 @@ export type FooterContent = {
   copyright: string;
   attribution: { label: string; href: string };
 };
-
-// ─── Navbar ─────────────────────────────────────────────────────────────────
 export type NavRoute = { href: string; label: string };
 export type NavFeature = { title: string; description: string };
 export type NavbarContent = {
@@ -142,8 +121,6 @@ export type NavbarContent = {
   dashboardLabel: string;
   githubLink: { href: string; ariaLabel: string };
 };
-
-// ─── Root ───────────────────────────────────────────────────────────────────
 export type HomeContent = {
   hero: HeroContent;
   sponsors: SponsorsContent;
@@ -158,66 +135,60 @@ export type HomeContent = {
   footer: FooterContent;
   navbar: NavbarContent;
 };
-
 // ─── Defaults ───────────────────────────────────────────────────────────────
-
 export const defaultHomeContent: HomeContent = {
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
     badgeInner: "Launch",
-    badgeOuter: "Panda SaaS starter is ready",
-    titleBefore: "Build your next",
-    titleHighlight: "SaaS",
-    titleAfter: "app in days, not weeks",
-    subtitle:
-      "Panda gives you authentication, billing-ready patterns, team flows, and polished UI foundations so you can ship faster with confidence.",
-    primaryCta: { label: "Start Building", href: "#pricing" },
-    secondaryCta: { label: "Explore features", href: "#features" },
+    badgeOuter: "Welcome to LaunchBoard",
+    titleBefore: "Launch your next",
+    titleHighlight: "startup",
+    titleAfter: "with confidence",
+    subtitle: "Plan, track, and accelerate your startup journey—all in one place.",
+    primaryCta: { label: "Get Started Now", href: "/auth#signup" },
+    secondaryCta: { label: "See How It Works", href: "#features" },
     heroImageLight: "/hero-image-light.jpeg",
     heroImageDark: "/hero-image-dark.jpeg",
-    heroImageAlt: "Panda dashboard preview",
+    heroImageAlt: "LaunchBoard dashboard preview",
   },
 
   // ── Sponsors ─────────────────────────────────────────────────────────────
   sponsors: {
-    heading: "Built with trusted tools",
+    heading: "Built for modern founders",
     items: [
-      { icon: "Crown", name: "Vercel" },
-      { icon: "Vegan", name: "Stripe" },
-      { icon: "Ghost", name: "OpenAI" },
-      { icon: "Puzzle", name: "Supabase" },
-      { icon: "Squirrel", name: "Clerk" },
-      { icon: "Cookie", name: "Resend" },
-      { icon: "Drama", name: "Sentry" },
+      { icon: "Rocket", name: "Startups" },
+      { icon: "Users", name: "Teams" },
+      { icon: "Star", name: "VCs" },
+      { icon: "Goal", name: "Accelerators" },
     ],
   },
 
   // ── Benefits ─────────────────────────────────────────────────────────────
   benefits: {
-    eyebrow: "Why Panda",
-    heading: "A practical SaaS app builder starter",
+    eyebrow: "Why LaunchBoard",
+    heading: "Command center for founders and teams",
     description:
-      "Built for teams that want production-ready foundations with room to customize, not a rigid template you outgrow in a week.",
+      "LaunchBoard gives you a practical, flexible workspace to move ideas from vision to execution—no more scattered notes or lost progress.",
     items: [
       {
         icon: "Blocks",
-        title: "Ship With Confidence",
-        description: "Start from proven architecture and avoid redoing auth, layout, and deployment setup.",
+        title: "Launch-ready foundation",
+        description: "All-in-one dashboard so you never lose sight of key milestones.",
       },
       {
         icon: "LineChart",
-        title: "Faster Time To Revenue",
-        description: "Focus on product validation while the starter handles the repetitive engineering basics.",
+        title: "Velocity for teams",
+        description: "Collaborate in real time and stay aligned across roles, tasks, and priorities.",
       },
       {
         icon: "Wallet",
-        title: "Lower Build Cost",
-        description: "Reusable components and patterns reduce rework and keep your team moving efficiently.",
+        title: "Optimized for outcomes",
+        description: "Transform ideas into shipped products with structured workflows.",
       },
       {
         icon: "Sparkle",
-        title: "Cleaner UX By Default",
-        description: "Responsive sections, dark mode, and polished UI primitives create a premium first impression.",
+        title: "Modern interface",
+        description: "Simple, elegant UI that founders and teams love.",
       },
     ],
   },
@@ -225,131 +196,96 @@ export const defaultHomeContent: HomeContent = {
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
     eyebrow: "Features",
-    heading: "What you get out of the box",
+    heading: "Everything you need to launch",
     subtitle:
-      "Panda combines developer speed and production-grade UX so you can spend your time shipping features instead of rebuilding starter infrastructure.",
+      "The only dashboard founders need to plan, manage, and execute their startup journey.",
     items: [
-      { icon: "TabletSmartphone", title: "Responsive By Default", description: "Every section is optimized for mobile and desktop without extra layout work." },
-      { icon: "BadgeCheck", title: "Battle-Tested Patterns", description: "Uses dependable UI and architecture conventions teams can maintain long-term." },
-      { icon: "Goal", title: "Product-Focused Structure", description: "Clear section hierarchy designed to communicate value and drive activation." },
-      { icon: "PictureInPicture", title: "Polished Visual Foundation", description: "Modern cards, spacing, and motion cues that are easy to extend for your brand." },
-      { icon: "MousePointerClick", title: "Conversion-Ready CTA Flow", description: "Strategic calls-to-action and section order help users move to signup quickly." },
-      { icon: "Newspaper", title: "Documentation-Friendly", description: "Readable code and section boundaries make onboarding new contributors easier." },
+      {
+        icon: "Lightbulb",
+        title: "Idea Management",
+        description: "Capture and refine every business concept.",
+      },
+      {
+        icon: "ListChecks",
+        title: "Task Tracking",
+        description: "Organize your team's to-dos and never miss a deadline.",
+      },
+      {
+        icon: "BarChart4",
+        title: "Progress Dashboard",
+        description: "Visualize milestones and measure your growth.",
+      },
+      {
+        icon: "Users",
+        title: "Team Collaboration",
+        description: "Work together, move faster.",
+      },
     ],
   },
 
   // ── Services ─────────────────────────────────────────────────────────────
   services: {
     eyebrow: "Services",
-    heading: "Core starter capabilities",
+    heading: "What LaunchBoard offers",
     subtitle:
-      "A pragmatic baseline for SaaS products that need to move quickly without sacrificing quality.",
+      "Streamline your startup workflow with purpose-built tools for every stage.",
     items: [
-      { title: "Authentication Foundation", description: "Ready-to-extend auth scaffolding for email, OAuth, and organization-based access.", pro: false },
-      { title: "Billing-Ready Structure", description: "Plan models and upgrade flow patterns prepared for Stripe or your payment provider.", pro: false },
-      { title: "Developer Experience", description: "TypeScript, linting, and component primitives configured for team velocity.", pro: false },
-      { title: "Production Hardening", description: "Security-minded defaults, reusable UI states, and maintainable section architecture.", pro: true },
+      { title: "Secure Authentication", description: "Keep your startup data protected with secure sign-in.", pro: false },
+      { title: "Collaborative Dashboard", description: "Coordinate tasks and milestones together.", pro: false },
+      { title: "Startup Progress Reports", description: "Monitor KPIs and milestones in real time.", pro: false },
+      { title: "Founder-Focused Experience", description: "Built for ambitious teams who want to win.", pro: true },
     ],
   },
 
   // ── Testimonials ─────────────────────────────────────────────────────────
   testimonials: {
     eyebrow: "Testimonials",
-    heading: "Teams shipping with Panda",
+    heading: "Founders love LaunchBoard",
     reviews: [
-      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "Panda saved us weeks of setup. We launched our first paying plan in less than a sprint.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Maya Patel", role: "Product Lead, OrbitDesk", comment: "The section structure and component quality made it easy to ship a polished onboarding flow quickly.", rating: 4.8 },
-      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "We replaced our old starter with Panda and reduced front-end rework dramatically.", rating: 4.9 },
-      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Growth, Nimbus", comment: "The default layout is conversion-friendly and easy to adapt to our brand.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Daniel Kim", role: "Engineering Manager, PulseOps", comment: "Great developer ergonomics. New engineers onboarded fast and started shipping immediately.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Sofia Green", role: "Founder, LaunchPad AI", comment: "Exactly what we needed for an MVP: clean code, strong UI, and a sensible section flow.", rating: 4.9 },
+      {
+        image: "/demo-img.jpg",
+        name: "Aarav Shah",
+        role: "Founder, FinchFlow",
+        comment: "LaunchBoard gave our team the clarity and momentum we needed to go from idea to reality.",
+        rating: 5.0
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Maya Patel",
+        role: "Product Lead, StartupLab",
+        comment: "The dashboard keeps everyone aligned and accountable.",
+        rating: 4.9
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Nikhil Rao",
+        role: "CTO, TeamForge",
+        comment: "Every idea and task is right where I need it. LaunchBoard is a founder’s dream.",
+        rating: 5.0
+      },
+      {
+        image: "/demo-img.jpg",
+        name: "Emma Brooks",
+        role: "Head of Growth, Nimbus",
+        comment: "Setup took minutes, not hours. My co-founder and I got to work right away.",
+        rating: 5.0
+      }
     ],
   },
 
   // ── Team ─────────────────────────────────────────────────────────────────
   team: {
     eyebrow: "Team",
-    heading: "Meet the Panda team",
+    heading: "Meet the LaunchBoard team",
     members: [
       {
         imageUrl: "/team1.jpg",
-        firstName: "Leo",
-        lastName: "Miranda",
-        positions: ["Lead Engineer", "Starter Architecture"],
+        firstName: "Chirag",
+        lastName: "Dodiya",
+        positions: ["Founder", "Product"],
         socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Elizabeth",
-        lastName: "Moore",
-        positions: ["Product Designer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "David",
-        lastName: "Diaz",
-        positions: ["Platform Engineer", "AI Integrations"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Sarah",
-        lastName: "Robinson",
-        positions: ["Cloud Engineer", "Kubernetes"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Michael",
-        lastName: "Holland",
-        positions: ["DevOps Engineer", "CI/CD"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "Zoe",
-        lastName: "Garcia",
-        positions: ["Frontend Engineer", "Design Systems"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Evan",
-        lastName: "James",
-        positions: ["Backend Engineer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Pam",
-        lastName: "Taylor",
-        positions: ["Fullstack Engineer", "Product UX"],
-        socialNetworks: [
-          { name: "X", url: "https://x.com/leo_mirand4" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/in/chiragdodiya" },
+          { name: "Github", url: "https://github.com/chiragdodiya" }
         ],
       },
     ],
@@ -358,33 +294,48 @@ export const defaultHomeContent: HomeContent = {
   // ── Pricing ──────────────────────────────────────────────────────────────
   pricing: {
     eyebrow: "Pricing",
-    heading: "Pricing for every stage",
-    subtitle: "Start lean, then scale to enterprise-grade workflows as your product grows.",
+    heading: "Flexible pricing for startups",
+    subtitle: "Choose a plan that grows with you.",
     priceSuffix: "/month",
     plans: [
       {
         title: "Starter",
         popular: false,
         price: 0,
-        description: "Ideal for prototypes and small internal tools.",
+        description: "Perfect for founders just starting out.",
         buttonText: "Start for free",
-        benefits: ["Up to 3 teammates", "Basic auth patterns", "Core landing sections", "Community support", "Deploy-ready setup"],
+        benefits: [
+          "Up to 3 collaborators",
+          "LaunchBoard core features",
+          "Community support",
+          "Customizable workspace",
+        ],
       },
       {
         title: "Growth",
         popular: true,
         price: 49,
-        description: "Best for product teams shipping customer-facing SaaS.",
+        description: "For teams scaling their ideas into reality.",
         buttonText: "Start trial",
-        benefits: ["Unlimited teammates", "Advanced section set", "Billing-ready models", "Priority support", "Team workflows"],
+        benefits: [
+          "Unlimited collaborators",
+          "Advanced task & milestone tracking",
+          "Priority support",
+          "Slack integration",
+        ],
       },
       {
         title: "Enterprise",
         popular: false,
         price: 199,
-        description: "For teams requiring compliance, support SLAs, and custom rollout.",
+        description: "Custom plans for larger teams and organizations.",
         buttonText: "Contact sales",
-        benefits: ["Security review support", "SSO/SAML integration path", "Dedicated onboarding", "Phone and email support", "Architecture advisory"],
+        benefits: [
+          "Dedicated support",
+          "Custom integrations",
+          "Security advisory",
+          "SLA guarantees",
+        ],
       },
     ],
   },
@@ -392,44 +343,47 @@ export const defaultHomeContent: HomeContent = {
   // ── Contact ──────────────────────────────────────────────────────────────
   contact: {
     eyebrow: "Contact",
-    heading: "Talk to the Panda team",
+    heading: "Get in touch with LaunchBoard",
     description:
-      "Need help customizing the starter, planning architecture, or accelerating launch? Share your goals and timeline.",
-    mailtoAddress: "hello@panda.dev",
+      "Want to see how LaunchBoard can work for your team? Reach out and let's talk.",
+    mailtoAddress: "chirag@bidx.ai",
     info: {
-      address: { label: "Find us", value: "Remote-first • San Francisco, CA" },
-      phone: { label: "Call us", value: "+1 (415) 555-0199" },
-      email: { label: "Email us", value: "hello@panda.dev" },
-      hours: { label: "Visit us", value: ["Monday - Friday", "9AM - 6PM PT"] },
+      address: { label: "Find us", value: "Remote-first • Global" },
+      phone: { label: "Call us", value: "" },
+      email: { label: "Email us", value: "chirag@bidx.ai" },
+      hours: { label: "Workspace hours", value: ["Monday - Friday", "9AM - 6PM"] },
     },
-    formSubjects: ["Starter Demo", "Architecture Review", "Design System", "Billing Integration", "Enterprise Plan"],
-    formSubmitLabel: "Send inquiry",
+    formSubjects: [
+      "Product Demo",
+      "Integration Inquiry",
+      "Startup Collaboration",
+      "Pricing & Plans",
+      "Other"
+    ],
+    formSubmitLabel: "Send message",
   },
 
   // ── FAQ ──────────────────────────────────────────────────────────────────
   faq: {
     eyebrow: "FAQ",
-    heading: "Common Questions",
+    heading: "LaunchBoard FAQs",
     items: [
-      { question: "Is Panda free to start with?", answer: "Yes. You can start with the core template and customize it for your product." },
-      { question: "Can I use this for a production SaaS app?", answer: "Yes. The starter is designed for production-minded teams with scalable structure and reusable UI patterns." },
-      { question: "Does it support dark mode and responsive design?", answer: "Yes. The template includes theme support and responsive layouts across major sections." },
-      { question: "Can I plug in my own auth and billing provider?", answer: "Yes. The structure is provider-agnostic and easy to adapt for your stack." },
-      { question: "How quickly can I launch with Panda?", answer: "Most teams can ship an MVP in days by reusing existing sections and starter patterns." },
+      { question: "Who is LaunchBoard for?", answer: "Founders, teams, and anyone launching a new startup, product, or project." },
+      { question: "Is LaunchBoard free to start?", answer: "Yes! Our Starter plan is completely free for new users and small teams." },
+      { question: "Can I switch plans?", answer: "Absolutely. Upgrade or downgrade anytime to suit your team’s needs." },
+      { question: "Does LaunchBoard work for remote teams?", answer: "Yes, LaunchBoard is built for remote-first collaboration and visibility." },
+      { question: "Is my startup’s data secure?", answer: "Security is our top priority—your data is always encrypted and protected." },
     ],
   },
 
   // ── Footer ───────────────────────────────────────────────────────────────
   footer: {
-    brandName: "Panda",
+    brandName: "LaunchBoard",
     columns: [
       {
         heading: "Contact",
         links: [
-          { label: "hello@panda.dev", href: "mailto:hello@panda.dev" },
-          { label: "Github", href: "#" },
-          { label: "Twitter", href: "https://x.com" },
-          { label: "Discord", href: "https://discord.com" },
+          { label: "chirag@bidx.ai", href: "mailto:chirag@bidx.ai" },
         ],
       },
       {
@@ -443,27 +397,24 @@ export const defaultHomeContent: HomeContent = {
       {
         heading: "Help",
         links: [
-          { label: "Contact Us", href: "#contact" },
           { label: "FAQ", href: "#faq" },
-          { label: "Docs", href: "https://nextjs.org/docs" },
         ],
       },
       {
         heading: "Socials",
         links: [
-          { label: "GitHub", href: "https://github.com" },
-          { label: "Discord", href: "https://discord.com" },
-          { label: "X", href: "https://x.com" },
+          { label: "GitHub", href: "https://github.com/chiragdodiya" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/chiragdodiya" },
         ],
       },
     ],
-    copyright: "\u00a9 2026 Panda SaaS App Builder Starter.",
-    attribution: { label: "Built on Next.js", href: "https://nextjs.org" },
+    copyright: `© ${new Date().getFullYear()} LaunchBoard. All rights reserved. `,
+    attribution: { label: "Built for founders", href: "/" },
   },
 
   // ── Navbar ───────────────────────────────────────────────────────────────
   navbar: {
-    brandName: "Panda",
+    brandName: "LaunchBoard",
     routes: [
       { href: "/#testimonials", label: "Testimonials" },
       { href: "/#team", label: "Team" },
@@ -471,23 +422,21 @@ export const defaultHomeContent: HomeContent = {
       { href: "/#faq", label: "FAQ" },
     ],
     featureDropdownLabel: "Features",
-    featureImage: { src: "/demo-img.jpg", alt: "Panda preview" },
+    featureImage: { src: "/hero-image-light.jpeg", alt: "LaunchBoard preview" },
     features: [
-      { title: "Auth, Billing, Teams", description: "Production-ready flows for sign-in, subscriptions, and organizations." },
-      { title: "UI + Design System", description: "Shadcn-based components with consistent theming and dark mode support." },
-      { title: "Deploy Fast", description: "Sane defaults for Next.js, TypeScript, and Vercel-first deployment." },
+      { title: "Idea Management", description: "Capture and organize all your startup concepts." },
+      { title: "Task Tracking", description: "Keep your team moving with organized templates." },
+      { title: "Progress Visualization", description: "Never lose sight of your milestones." },
     ],
-    signInLabel: "Sign in",
-    signUpLabel: "Sign up",
+    signInLabel: "Sign In",
+    signUpLabel: "Sign Up",
     dashboardLabel: "Dashboard",
-    githubLink: { href: "https://nextjs.org/docs", ariaLabel: "View on GitHub" },
+    githubLink: { href: "https://github.com/chiragdodiya", ariaLabel: "View on GitHub" },
   },
 };
 
 export const homeContent: HomeContent = defaultHomeContent;
 
-// Keep this function export for backward compatibility with older imports.
-// Primary consumers should import `homeContent` directly.
 export function getHomeContent(): HomeContent {
   return homeContent;
 }
