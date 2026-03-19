@@ -9,7 +9,7 @@ export default function IdeasClient() {
         Startup Ideas
       </h1>
       <p className="text-muted-foreground text-lg">
-        No startup ideas yet. Start by adding your first idea.
+        No ideas yet. Add your first business idea to get started.
       </p>
       <Button size="lg" className="mt-6">
         <Lightbulb className="inline-block mr-2" />
