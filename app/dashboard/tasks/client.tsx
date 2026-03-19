@@ -9,7 +9,7 @@ export default function TasksClient() {
         Tasks
       </h1>
       <p className="text-muted-foreground text-lg">
-        No tasks created. Organize your next steps and assign tasks to your team.
+        No tasks yet. Create tasks to organize your startup journey.
       </p>
       <Button size="lg" className="mt-6">
         <ListChecks className="inline-block mr-2" />
