@@ -21,15 +21,6 @@ import {
   signUpWithPassword,
 } from "./actions";
 
-// Purpose: Client UI for /auth.
-// Use this file for auth mode toggles, form interactivity, and browser-only logic.
-//
-// Replication pattern for new interactive pages:
-// - Keep server mutations in `actions.ts`.
-// - Bind actions here with `useActionState`.
-// - Use local state only for presentation/interaction (tabs, steps, toggles).
-// - Keep forms simple: collect inputs and submit to a server action.
-
 type AuthMode = "signin" | "signup";
 
 type ClientProps = {
@@ -44,13 +35,8 @@ const initialActionState: AuthActionState = {
 };
 
 export default function Client({ redirectTo, flashStatus, flashMessage }: ClientProps) {
-  // UI state: only controls which form is shown.
   const [mode, setMode] = useState<AuthMode>("signin");
 
-  // Server action wiring:
-  // - `state` carries serializable feedback (error/success message).
-  // - `action` is assigned directly to form `action={...}`.
-  // - `pending` drives submit button loading state.
   const [signInState, signInAction, signInPending] = useActionState(
     signInWithPassword,
     initialActionState
@@ -69,7 +55,6 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
     }
   }, [activeState._devUrl]);
 
-  // URL hash keeps the auth mode linkable (`/auth#signin` or `/auth#signup`).
   useEffect(() => {
     const syncFromHash = () => {
       const hash = window.location.hash.replace("#", "").toLowerCase();
@@ -89,19 +74,44 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
   };
 
   const content = useMemo(() => {
-    // View-model for mode-specific heading/description copy.
     if (mode === "signup") {
       return {
         id: "signup",
-        title: "Create account",
-        description: "Start your free account in less than a minute.",
+        title: "Join LaunchBoard",
+        description: "Create your free account and start building your startup.",
+        button: "Sign Up",
+        helper: (
+          <>
+            Already have an account?{" "}
+            <button
+              className="underline text-primary ml-1"
+              type="button"
+              onClick={() => setModeWithHash("signin")}
+            >
+              Sign in here.
+            </button>
+          </>
+        ),
       };
     }
 
     return {
       id: "signin",
-      title: "Sign in",
-      description: "Use your email and password to continue.",
+      title: "Welcome back to LaunchBoard",
+      description: "Sign in to manage your startup dashboard.",
+      button: "Sign In",
+      helper: (
+        <>
+          Don’t have an account?{" "}
+          <button
+            className="underline text-primary ml-1"
+            type="button"
+            onClick={() => setModeWithHash("signup")}
+          >
+            Sign up now.
+          </button>
+        </>
+      ),
     };
   }, [mode]);
 
@@ -113,21 +123,20 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
           <div className="relative z-10 flex h-full flex-col justify-between">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">
-                Panda Access
+                LaunchBoard Access
               </p>
               <h1 className="max-w-sm text-4xl font-semibold leading-tight tracking-tight">
-                Launch faster with one workspace for your team.
+                Launch your next startup with confidence.
               </h1>
               <p className="max-w-md text-sm text-muted-foreground">
-                Secure auth, polished interface, and a clean onboarding flow built
-                for production teams.
+                All-in-one workspace for idea management, task tracking, and milestone progress.
               </p>
             </div>
 
             <div className="relative overflow-hidden rounded-2xl border border-secondary/70 bg-background/80 p-3 shadow-lg">
               <Image
-                src="/demo-img.jpg"
-                alt="Panda product preview"
+                src="/hero-image-light.jpeg"
+                alt="LaunchBoard product preview"
                 className="h-full w-full rounded-xl object-cover"
                 width={1200}
                 height={900}
@@ -149,7 +158,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Sign in
+                  Sign In
                 </button>
                 <button
                   type="button"
@@ -160,7 +169,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Sign up
+                  Sign Up
                 </button>
               </div>
 
@@ -184,7 +193,6 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
               ) : null}
 
               {mode === "signin" ? (
-                // Sign-in form submits directly to server action.
                 <form className="space-y-4" action={signInAction}>
                   {redirectTo && <input type="hidden" name="redirectTo" value={redirectTo} />}
                   <div className="space-y-2">
@@ -215,21 +223,20 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Signing in..." : "Sign in"}
+                    {isPending ? "Signing in..." : content.button}
                   </Button>
                 </form>
               ) : (
-                // Sign-up form submits directly to server action.
                 <form className="space-y-4" action={signUpAction}>
                   {redirectTo && <input type="hidden" name="redirectTo" value={redirectTo} />}
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="signup-first-name">First name</Label>
-                      <Input id="signup-first-name" name="firstName" placeholder="Chirag" required />
+                      <Label htmlFor="signup-first-name">First Name</Label>
+                      <Input id="signup-first-name" name="firstName" placeholder="First Name" required />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="signup-last-name">Last name</Label>
-                      <Input id="signup-last-name" name="lastName" placeholder="Dodiya" required />
+                      <Label htmlFor="signup-last-name">Last Name</Label>
+                      <Input id="signup-last-name" name="lastName" placeholder="Last Name" required />
                     </div>
                   </div>
 
@@ -256,7 +263,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="signup-confirm-password">Confirm password</Label>
+                      <Label htmlFor="signup-confirm-password">Confirm Password</Label>
                       <Input
                         id="signup-confirm-password"
                         name="confirmPassword"
@@ -268,7 +275,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Creating account..." : "Create account"}
+                    {isPending ? "Creating account..." : content.button}
                   </Button>
                 </form>
               )}
@@ -284,6 +291,8 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   {activeState.message}
                 </p>
               ) : null}
+
+              <div className="mt-6 text-center text-sm">{content.helper}</div>
             </CardContent>
           </Card>
         </div>
