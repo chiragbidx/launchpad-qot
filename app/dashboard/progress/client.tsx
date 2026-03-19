@@ -9,7 +9,7 @@ export default function ProgressClient() {
         Progress
       </h1>
       <p className="text-muted-foreground text-lg">
-        No milestones tracked. Set your first milestone to begin monitoring progress.
+        No milestones yet. Add milestones to track your startup growth.
       </p>
       <Button size="lg" className="mt-6">
         <BarChart4 className="inline-block mr-2" />
